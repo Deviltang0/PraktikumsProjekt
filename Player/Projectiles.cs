@@ -22,7 +22,7 @@ namespace SkellyInvaders
         {
             _position = position;
             _rotation = 90;
-            _collider = new Rectangle((int)position.X, (int)position.Y, 8, 8);
+            _collider = new Rectangle((int)position.X, (int)position.Y, 8, 16);
         }
 
 

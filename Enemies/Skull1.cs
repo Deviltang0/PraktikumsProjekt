@@ -13,9 +13,9 @@ namespace SkellyInvaders.Enemies
         public Skull1(Vector2 position)
         {
             _position = position;
-            _speed = 50;
+            _speed = 75;
             _skulls = Game1.Skull1Texture;
-            _collider = new Rectangle((int)position.X, (int)position.Y, 16, 16);
+            _collider = new Rectangle((int)position.X, (int)position.Y, 32, 32);
 
         }
 
@@ -39,7 +39,7 @@ namespace SkellyInvaders.Enemies
                 EnemyController.Dir = Direction.Right;
                 EnemyController.Jump = true;
             }
-            if (_position.X > 700)
+            if (_position.X > Game1.ResolutionWidth - 100)
             {
                 EnemyController.Dir = Direction.Left;
                 EnemyController.Jump = true;

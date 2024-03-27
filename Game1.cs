@@ -11,19 +11,28 @@ namespace SkellyInvaders
 
     public class Game1 : Game
     {
-        private GraphicsDeviceManager _graphics;
+        public GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         Player _player = new();
+        EnemyController _enemyController = new();
+
+        static public int ResolutionWidth;
+        static public int ResolutionHeight;
 
         static public Texture2D ProjTexture;
         static public Texture2D Skull1Texture;
         static public Texture2D Skull2Texture;
         static public Texture2D Background;
+        static public SpriteFont SpaceFont;
+
+
+
         private bool _gameOver = false;
 
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
+            _graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -31,8 +40,11 @@ namespace SkellyInvaders
         protected override void Initialize()
         {
            
-            _graphics.PreferredBackBufferWidth = 1600;
-            _graphics.PreferredBackBufferHeight = 900;
+            ResolutionWidth = 1000;
+            ResolutionHeight = 740;
+            _graphics.PreferredBackBufferWidth = ResolutionWidth;
+            _graphics.PreferredBackBufferHeight = ResolutionHeight;
+            _graphics.ApplyChanges();
 
             base.Initialize();
         }
@@ -43,8 +55,9 @@ namespace SkellyInvaders
             _player.LoadContent(Content);
             ProjTexture = Content.Load<Texture2D>("Player/tracer");
             Skull1Texture = Content.Load<Texture2D>("Skulls/skull");
-            Skull2Texture = Content.Load<Texture2D>("Skulls/skullnew");
-            Background = Content.Load<Texture2D>("Background/bg");
+            Skull2Texture = Content.Load<Texture2D>("Skulls/skull2");
+            Background = Content.Load<Texture2D>("Background/Cosmic_Frontier_-_VNM_02");
+            SpaceFont = Content.Load<SpriteFont>("Fonts/spaceFont");
         }
 
         protected override void Update(GameTime gameTime)
@@ -54,7 +67,7 @@ namespace SkellyInvaders
             if (!_gameOver)
             {
 
-
+                _enemyController.UpdateController(gameTime);
                 _player.Update(gameTime);
                 foreach (Projectile proj in Projectile.Projectiles)
                 {
@@ -64,7 +77,7 @@ namespace SkellyInvaders
                 foreach (GameObject skulls in EnemyController.Skulls)
                 {
                     skulls.Update(gameTime);
-                    if (skulls.Position.Y > 500)
+                    if (skulls.Position.Y > ResolutionWidth - 100)
                     {
                         _gameOver = true;
                     }
@@ -80,7 +93,8 @@ namespace SkellyInvaders
                         }
                     }
                 }
-
+                Projectile.Projectiles.RemoveAll(e => e.IsCollided);
+                EnemyController.Skulls.RemoveAll(e => e.IsCollided);
 
             }
             base.Update(gameTime);
@@ -107,6 +121,7 @@ namespace SkellyInvaders
                     skulls.Draw(_spriteBatch);
                 }
             }
+            _spriteBatch.DrawString(SpaceFont, "SKELLY INVADERS", new Vector2(270,10), Color.White);
             _spriteBatch.End();
             base.Draw(gameTime);
         }

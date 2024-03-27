@@ -11,10 +11,10 @@ namespace SkellyInvaders
     {
 
 
-        private Vector2 _position = new Vector2(400, 550);
+        private Vector2 _position = new Vector2(500, 650);
         KeyboardState _kState;
         double _dt;
-        float _speed = 2f;
+        float _speed = 300;
         Texture2D _playerTexture;
         private double _cdTime = 0.0;
 
@@ -23,7 +23,7 @@ namespace SkellyInvaders
 
         public void LoadContent(ContentManager contentManager)
         {
-            _playerTexture = contentManager.Load<Texture2D>("Player/player_idle");
+            _playerTexture = contentManager.Load<Texture2D>("Player/ship");
 
         }
 
@@ -42,7 +42,7 @@ namespace SkellyInvaders
 
             }
             // move player right...
-            if (_kState.IsKeyDown(Keys.D) && _position.X < 550)
+            if (_kState.IsKeyDown(Keys.D) && _position.X < Game1.ResolutionWidth - 10)
             {
 
                 _position.X += _speed * (float)_dt;

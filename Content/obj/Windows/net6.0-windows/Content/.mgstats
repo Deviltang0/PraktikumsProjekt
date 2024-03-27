@@ -1,1 +1,7 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/Games/source/repos/PraktikumsProjektDT/Content/Background/Cosmic_Frontier_-_VNM_02.png","C:/Users/Games/source/repos/PraktikumsProjektDT/Content/bin/Windows/Content/Background/Cosmic_Frontier_-_VNM_02.xnb","TextureProcessor","Texture2DContent",2030902,8294485,0.3936234
+"C:/Users/Games/source/repos/PraktikumsProjektDT/Content/Fonts/spaceFont.spritefont","C:/Users/Games/source/repos/PraktikumsProjektDT/Content/bin/Windows/Content/Fonts/spaceFont.xnb","FontDescriptionProcessor","SpriteFontContent",2067,136223,0.1652479
+"C:/Users/Games/source/repos/PraktikumsProjektDT/Content/Player/ship.png","C:/Users/Games/source/repos/PraktikumsProjektDT/Content/bin/Windows/Content/Player/ship.xnb","TextureProcessor","Texture2DContent",1018,4181,0.0017163
+"C:/Users/Games/source/repos/PraktikumsProjektDT/Content/Player/tracer.png","C:/Users/Games/source/repos/PraktikumsProjektDT/Content/bin/Windows/Content/Player/tracer.xnb","TextureProcessor","Texture2DContent",159,597,0.0012758
+"C:/Users/Games/source/repos/PraktikumsProjektDT/Content/Skulls/skull.png","C:/Users/Games/source/repos/PraktikumsProjektDT/Content/bin/Windows/Content/Skulls/skull.xnb","TextureProcessor","Texture2DContent",441,4181,0.0012182
+"C:/Users/Games/source/repos/PraktikumsProjektDT/Content/Skulls/skull2.png","C:/Users/Games/source/repos/PraktikumsProjektDT/Content/bin/Windows/Content/Skulls/skull2.xnb","TextureProcessor","Texture2DContent",388,4181,0.0872039

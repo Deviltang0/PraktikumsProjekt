@@ -18,8 +18,8 @@ namespace SkellyInvaders.Enemies
         //Enemyspawn
         int totalEnemiesX = 10;
         int totalEnemiesY = 10;
-        int spacingX = 20;
-        int spacingY = 20;
+        int spacingX = 40;
+        int spacingY = 30;
         Vector2 startSpawnPos = new Vector2(100, 100);
 
         static public Direction Dir
@@ -39,11 +39,11 @@ namespace SkellyInvaders.Enemies
                     {
                         if (i < 7)
                         {
-                            SpawnSkull1(new Vector2(startSpawnPos.X + j * 20, startSpawnPos.Y + i * spacingY));
+                            SpawnSkull1(new Vector2(startSpawnPos.X + j * spacingX, startSpawnPos.Y + i * spacingY));
                         }
                         else
                         {
-                            SpawnSkull2(new Vector2(startSpawnPos.X + j * 20, startSpawnPos.Y + i * spacingX));
+                            SpawnSkull2(new Vector2(startSpawnPos.X + j * spacingX, startSpawnPos.Y + i * spacingY));
                         }
                     }
 
@@ -54,6 +54,7 @@ namespace SkellyInvaders.Enemies
                 {
                     Skulls.Position = new Vector2(Skulls.Position.X, Skulls.Position.Y + 20);
                 }
+                _jump = false;
             }
         }
         public void SpawnSkull1(Vector2 spawnPosition)
